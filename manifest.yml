@@ -1,28 +1,31 @@
 modules:
   jira:dashboardGadget:
     - key: weather-gadget-dashboardGadget
-      resource: main
-      resolver:
-        function: resolver
-      edit:
-        function: resolver
-        resource: edit
-        render: native
-      render: native
       title: weather-gadget
       description: A gadget that displays the weather
       thumbnail: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+      resource: main
+      render: native
+      resolver:
+        function: resolver
+      edit:
+        resource: main
+        render: native
   function:
     - key: resolver
       handler: index.handler
 resources:
   - key: main
     path: src/frontend/index.jsx
-  - key: edit
-    path: src/frontend/edit.jsx
 app:
   id: ari:cloud:ecosystem::app/7368b086-bea0-4356-9e49-08b13d1e66cd
 permissions:
   scopes:
     - write:jira-work
     - read:jira-work
+  external:
+    images:
+      - 'https://openweathermap.org'
+    fetch:
+      backend:
+        - api.openweathermap.org
