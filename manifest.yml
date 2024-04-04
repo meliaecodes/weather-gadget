@@ -18,7 +18,7 @@ resources:
   - key: main
     path: src/frontend/index.jsx
 app:
-  id: ari:cloud:ecosystem::app/7368b086-bea0-4356-9e49-08b13d1e66cd
+  id: <your-app-id>
 permissions:
   scopes:
     - write:jira-work
